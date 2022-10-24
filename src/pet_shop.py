@@ -6,23 +6,22 @@ def get_total_cash(dict):
     return dict["admin"]["total_cash"]
 
 def add_or_remove_cash(dict, cash_val):
-    dict["admin"]["total_cash"] = get_total_cash(dict) + cash_val
-    return dict["admin"]["total_cash"]
+    dict["admin"]["total_cash"] += cash_val
+    
 
 def get_pets_sold(dict):
     return dict["admin"]["pets_sold"]
 
 def increase_pets_sold(dict,val):
-    dict["admin"]["pets_sold"] = get_pets_sold(dict) + val
-    return dict["admin"]["pets_sold"]
+    dict["admin"]["pets_sold"] += val
 
 def get_stock_count(dict):
     return len(dict["pets"])
 
-def get_pets_by_breed(dict, pet):
+def get_pets_by_breed(dict, breed):
     val1 = []
     for val in dict["pets"]:
-        if val["breed"] == pet:
+        if val["breed"] == breed:
             val1.append(val)
     return val1
     
@@ -39,14 +38,14 @@ def remove_pet_by_name(dict, name):
 def add_pet_to_stock(dict, new_pet):
     dict["pets"].append(new_pet)
   
-# cash = get_customer_cash(self.customers[0])
+
 
 def get_customer_cash(customer):
     return customer["cash"]
 
 def remove_customer_cash(customer, cash):
-    customer["cash"] = get_customer_cash(customer) - cash 
-    return customer["cash"] 
+    customer["cash"] -= cash 
+    
 
 def get_customer_pet_count(customer):
     return len(customer["pets"])
